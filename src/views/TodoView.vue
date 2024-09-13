@@ -1,12 +1,20 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, type Ref, ref } from 'vue'
 
 const newTodo = ref('')
 
-const todos = ref<any>('')
+interface todo {
+  completed: boolean,
+  text: string
+}
+
+const todos: Ref<todo[]> = ref([])
 
 onMounted(() => {
-  todos.value = JSON.parse(localStorage.getItem('todos') || '')
+  const parsedJSON = JSON.parse(localStorage.getItem('todos') || '""')
+  for (const item of parsedJSON) {
+    todos.value.push(item)
+  }
 })
 
 function addTodo() {
@@ -31,14 +39,13 @@ function removeTodo(index: any) {
 }
 
 function completedTodo(todo: any) {
-  todo.complete = !todo.complete
+  todo.completed = !todo.completed
   updateStorage()
 }
 
 function updateStorage() {
   localStorage.setItem('todos', JSON.stringify(todos.value))
 }
-
 </script>
 
 <template>
@@ -90,7 +97,7 @@ function updateStorage() {
                 <div
                   class="rounded shadow-md p-3 h-full hover:shadow-gray-400 text-gray-600 text-lg font-semibold flex
                     justify-between items-center text-left"
-                  :class="{ 'line-through': todo.complete }"
+                  :class="{ 'line-through': todo.completed }"
                   v-for="(todo, index) in todos"
                   :key="index"
                 >
