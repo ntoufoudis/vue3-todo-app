@@ -1,20 +1,31 @@
-# todo-app
+# Vue 3 ToDo Application
 
-This template should help get you started developing with Vue 3 in Vite.
+## Description:
+Simple ToDo Application built with Vue 3.
 
-## Recommended IDE Setup
+It allows to:
+* Create a todo.
+* Mark a todo as completed or not.
+* Delete single todo.
+* Delete all todos.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+It utilizes localStorage to keep the items during browser refresh.
 
-## Type Support for `.vue` Imports in TS
+Technologies used:
+* Vue 3
+* Typescript
+* TailwindCSS
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Demo [here](https://todo.ntoufoudis.com)
 
 ## Project Setup
+### Clone Repository
+
+```sh
+git clone https://github.com/ntoufoudis/vue3-todo-app.git
+```
+
+### Install Dependencies
 
 ```sh
 npm install
